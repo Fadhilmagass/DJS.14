@@ -9,7 +9,6 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 - /ping = mengetahui respon dan kinerja bot
 - /clear = Menghapus pesan secara spesifik
 - /createverify = membuat sistem verifikasi
-  Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang akan ditambahkan dan ditingkatkan.
 
 ## Run Locally
 

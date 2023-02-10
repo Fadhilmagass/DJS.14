@@ -13,12 +13,12 @@ module.exports = {
 
             command.execute(interaction, client);
         } else if (interaction.isButton()) {
-            const role = interaction.guild.roles.cache.get('ROLE_ID_HERE');
+            const role = interaction.guild.roles.cache.get('863732349774331934');
             return interaction.member.roles.add(role)
                 .then((member) => interaction.reply({
                     content: `${role} telah diberikan kepada anda.`, ephemeral: true
                 }),
-            );
+                );
         } else {
             return;
         }

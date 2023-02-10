@@ -2,12 +2,13 @@
 
 [RAHASIA | ⚙](https://discord.com/api/oauth2/authorize?client_id=1072586274319388682&permissions=8&scope=bot) adalah bot Discord yang dirancang untuk membantu memudahkan interaksi pengguna dalam sebuah server Discord. Bot ini dibuat menggunakan bahasa pemrograman JavaScript dan library Discord.js. Bot ini memiliki berbagai fitur yang dapat membantu memanagement server, seperti mengelola pesan, memberikan peringatan, mengelola role, dan masih banyak lagi.
 
+Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang akan ditambahkan dan ditingkatkan.
+
 ## Commands
 
 - /ping = mengetahui respon dan kinerja bot
 - /clear = Menghapus pesan secara spesifik
 - /createverify = membuat sistem verifikasi
-  Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang akan ditambahkan dan ditingkatkan.
 
 ## Run Locally
 

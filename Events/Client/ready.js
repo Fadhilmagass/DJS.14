@@ -1,20 +1,26 @@
-const { Client, ModalBuilder } = require('discord.js');
-const mongoose = require('mongoose');
-const config = require('../../config.json');
+const { Client, ModalBuilder, ActivityType } = require('discord.js')
+const mongoose = require('mongoose')
+const config = require('../../config.json')
 
 module.exports = {
     name: "ready",
     once: true,
-    async execute(client) {
-        mongoose.set('strictQuery', false);
+    async execute(client, guild) {
         await mongoose.connect(config.mongodb || '', {
             keepAlive: true,
-        });
+        })
 
-        if (mongoose.connect) {
-            console.log('Koneksi ke MongoDB berhasil 🙌');
+        if(mongoose.connect) {
+            console.log("MongoDB connection successful | ✅");
         }
+        console.log(`${client.user.username} is now Online 🚀`);
 
-        console.log(`${client.user.username} is now online 🔛`);
-    }
+        client.user.setPresence({
+            activities: [{
+                name: `This Server 🤖`,
+                type: ActivityType.Watching
+            }],
+            status: "online"
+        })
+    },
 }

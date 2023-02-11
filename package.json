@@ -1,18 +1,17 @@
 {
-  "name": "djs.14",
+  "name": "djs-v14",
   "version": "1.0.0",
-  "description": "This is just ordinary BOT",
+  "description": "This is a moderation BOT",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Matthew",
+  "author": "Matthew Anthony Andreas",
   "license": "ISC",
   "dependencies": {
     "ascii-table": "^0.0.9",
-    "discord.js": "^14.7.1",
+    "discord.js": "^14.6.0",
     "fs": "^0.0.1-security",
-    "mongoose": "^6.9.1",
-    "nodemon": "^2.0.20"
+    "mongoose": "^6.7.3"
   }
 }

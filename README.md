@@ -6,22 +6,25 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 
 ## Commands
 
-- /ping = mengetahui respon dan kinerja bot
-- /clear = Menghapus pesan secara spesifik
-- /createverify = membuat sistem verifikasi
+- /ping = Mengetahui respon dan kinerja bot.
+- /clear = Menghapus pesan secara spesifik.
+- /createverify = Membuat sistem verifikasi. { Masih dalam perbaikkan }
+- /ban = Melakukan banned kepada user.
+- /unban = Unban member dari server.
+- /help = Melihat semua command yang ada pada BOT.
 
 ## Run Locally
 
 Clone repository ini ke komputer Anda dengan perintah:
 
 ```bash
-  git clone https://github.com/Fadhilmagass/DJS.14
+  git clone https://github.com/Fadhilmagass/Djs-v14-Rahasia
 ```
 
 Masuk ke direktori bot:
 
 ```bash
-  cd DJS.14
+  cd Djs-v14-Rahasia
 ```
 
 Instal dependensi yang dibutuhkan dengan perintah:

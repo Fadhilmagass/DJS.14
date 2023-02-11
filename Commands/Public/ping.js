@@ -1,11 +1,11 @@
-const { SlashCommandBuilder, CommandInteraction, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, CommandInteraction, PermissionFlagsBits } = require("discord.js");
 
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("ping")
-        .setDescription("pong")
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
+        .setDescription("Pong")
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator), // only allowed for admin users
     execute(interaction) {
-        interaction.reply({ content: "Pong", ephemeral: true })
+        interaction.reply({ content: "Pong 🏓", ephemeral: true })
     },
 };

@@ -18,13 +18,13 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 Clone repository ini ke komputer Anda dengan perintah:
 
 ```bash
-  git clone https://github.com/Fadhilmagass/Djs-v14-Rahasia
+  git clone https://github.com/Fadhilmagass/DJS.14
 ```
 
 Masuk ke direktori bot:
 
 ```bash
-  cd Djs-v14-Rahasia
+  cd DJS.14
 ```
 
 Instal dependensi yang dibutuhkan dengan perintah:
@@ -41,9 +41,19 @@ Jalankan bot dengan perintah:
 
 ## Tech Stack
 
-**Client:** [Discord.js](https://discord.js.org/#/docs/discord.js/main/general/welcome)
-
-**Server:** [Node](https://nodejs.org/en/)
+- [Node.js](https://nodejs.org/en/)
+  Node.js adalah platform runtime JavaScript yang memungkinkan Anda menjalankan kode JavaScript di luar browser. Discord.js dibangun menggunakan bahasa pemrograman JavaScript dan menjalankan pada Node.js, sehingga Anda harus memasang Node.js terlebih dahulu.
+- [Discord API](https://github.com/discord/discord-api-docs)
+  Discord menyediakan API yang memungkinkan Anda membuat bot Discord dan berkomunikasi dengan server Discord. Anda dapat menemukan dokumentasi API Discord dan informasi tentang cara menggunakannya di situs web resmi Discord Developer Portal.
+- [Discord.js](https://discord.js.org/#/docs/discord.js/main/general/welcome)
+  Discord.js adalah library JavaScript yang memungkinkan Anda membuat bot Discord dengan mudah menggunakan API Discord. Library ini memiliki banyak fitur dan metode yang mempermudah interaksi dengan server Discord dan membuat kode bot lebih efisien.
+- [MongoDB](https://www.mongodb.com/)
+  MongoDB adalah salah satu database NoSQL yang populer dan dapat digunakan untuk menyimpan dan mengambil data yang dibutuhkan oleh bot Discord Anda.
+  Dengan menggunakan MongoDB, Anda dapat membuat bot Discord yang lebih kompleks dan memiliki fitur-fitur yang lebih lengkap, seperti menyimpan data pengguna, memantau aktivitas pengguna, dan membuat log.
+- [Text editor](https://code.visualstudio.com/)
+  Anda akan membutuhkan text editor untuk menulis kode bot Anda. Anda dapat menggunakan text editor apa pun, seperti Visual Studio Code, Atom, dll. Pastikan bahwa text editor yang Anda gunakan memiliki pengaya (extension) untuk JavaScript dan Node.js untuk mempermudah pengembangan bot Anda.
+- [Command Line](https://www.codecademy.com/article/command-line-commands)
+  Anda harus memahami dasar-dasar menggunakan Command Prompt atau Terminal untuk menjalankan perintah Git dan NPM. Ini akan membantu Anda memasang dan mengelola paket yang dibutuhkan untuk proyek bot Anda.
 
 ## Lessons Learned
 

@@ -12,6 +12,20 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 - /ban = Melakukan banned kepada user.
 - /unban = Unban member dari server.
 - /help = Melihat semua command yang ada pada BOT.
+- /mute = Mute seorang anggota dari server.
+- /unmute = Unmute seorang anggota dari server.
+
+## Konfigurasi MongoDB & BOT Token
+
+Untuk menjalankan bot ini, Anda harus menentukan konfigurasi MongoDB dan BOT Token Anda di file `config.json`.
+Untuk mendapatkan Token BOT anda, anda bisa dapatkan [disini](https://discord.com/developers)
+
+```bash
+  {
+    "token": "YOUR_BOT_TOKEN_HERE",
+    "mongodb": "mongodb://<dbuser>:<dbpassword>@<host>:<port>/<dbname>"
+  }
+```
 
 ## Run Locally
 
@@ -42,18 +56,29 @@ Jalankan bot dengan perintah:
 ## Tech Stack
 
 ## 1. [Node.js](https://nodejs.org/en/)
-  Node.js adalah platform runtime JavaScript yang memungkinkan Anda menjalankan kode JavaScript di luar browser. Discord.js dibangun menggunakan bahasa pemrograman JavaScript dan menjalankan pada Node.js, sehingga Anda harus memasang Node.js terlebih dahulu.
+
+Node.js adalah platform runtime JavaScript yang memungkinkan Anda menjalankan kode JavaScript di luar browser. Discord.js dibangun menggunakan bahasa pemrograman JavaScript dan menjalankan pada Node.js, sehingga Anda harus memasang Node.js terlebih dahulu.
+
 ## 2. [Discord API](https://github.com/discord/discord-api-docs)
-  Discord menyediakan API yang memungkinkan Anda membuat bot Discord dan berkomunikasi dengan server Discord. Anda dapat menemukan dokumentasi API Discord dan informasi tentang cara menggunakannya di situs web resmi Discord Developer Portal.
+
+Discord menyediakan API yang memungkinkan Anda membuat bot Discord dan berkomunikasi dengan server Discord. Anda dapat menemukan dokumentasi API Discord dan informasi tentang cara menggunakannya di situs web resmi Discord Developer Portal.
+
 ## 3. [Discord.js](https://discord.js.org/#/docs/discord.js/main/general/welcome)
-  Discord.js adalah library JavaScript yang memungkinkan Anda membuat bot Discord dengan mudah menggunakan API Discord. Library ini memiliki banyak fitur dan metode yang mempermudah interaksi dengan server Discord dan membuat kode bot lebih efisien.
+
+Discord.js adalah library JavaScript yang memungkinkan Anda membuat bot Discord dengan mudah menggunakan API Discord. Library ini memiliki banyak fitur dan metode yang mempermudah interaksi dengan server Discord dan membuat kode bot lebih efisien.
+
 ## 4. [MongoDB](https://www.mongodb.com/)
-  MongoDB adalah salah satu database NoSQL yang populer dan dapat digunakan untuk menyimpan dan mengambil data yang dibutuhkan oleh bot Discord Anda.
-  Dengan menggunakan MongoDB, Anda dapat membuat bot Discord yang lebih kompleks dan memiliki fitur-fitur yang lebih lengkap, seperti menyimpan data pengguna, memantau aktivitas pengguna, dan membuat log.
+
+MongoDB adalah salah satu database NoSQL yang populer dan dapat digunakan untuk menyimpan dan mengambil data yang dibutuhkan oleh bot Discord Anda.
+Dengan menggunakan MongoDB, Anda dapat membuat bot Discord yang lebih kompleks dan memiliki fitur-fitur yang lebih lengkap, seperti menyimpan data pengguna, memantau aktivitas pengguna, dan membuat log.
+
 ## 5. [Text editor](https://code.visualstudio.com/)
-  Anda akan membutuhkan text editor untuk menulis kode bot Anda. Anda dapat menggunakan text editor apa pun, seperti Visual Studio Code, Atom, dll. Pastikan bahwa text editor yang Anda gunakan memiliki pengaya (extension) untuk JavaScript dan Node.js untuk mempermudah pengembangan bot Anda.
+
+Anda akan membutuhkan text editor untuk menulis kode bot Anda. Anda dapat menggunakan text editor apa pun, seperti Visual Studio Code, Atom, dll. Pastikan bahwa text editor yang Anda gunakan memiliki pengaya (extension) untuk JavaScript dan Node.js untuk mempermudah pengembangan bot Anda.
+
 ## 6. [Command Line](https://www.codecademy.com/article/command-line-commands)
-  Anda harus memahami dasar-dasar menggunakan Command Prompt atau Terminal untuk menjalankan perintah Git dan NPM. Ini akan membantu Anda memasang dan mengelola paket yang dibutuhkan untuk proyek bot Anda.
+
+Anda harus memahami dasar-dasar menggunakan Command Prompt atau Terminal untuk menjalankan perintah Git dan NPM. Ini akan membantu Anda memasang dan mengelola paket yang dibutuhkan untuk proyek bot Anda.
 
 ## Lessons Learned
 

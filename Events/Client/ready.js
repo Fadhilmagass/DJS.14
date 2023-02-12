@@ -6,18 +6,21 @@ module.exports = {
     name: "ready",
     once: true,
     async execute(client, guild) {
-        await mongoose.connect(config.mongodb || '', {
+        mongoose.connect(config.mongodb || '', {
             keepAlive: true,
-        })
+        }).catch((error) => {
+            console.error("Error connecting to MongoDB:", error);
+        });
 
-        if(mongoose.connect) {
+        if (mongoose.connect) {
             console.log("MongoDB connection successful | ✅");
         }
+
         console.log(`${client.user.username} is now Online 🚀`);
 
         client.user.setPresence({
             activities: [{
-                name: `This Server 🤖`,
+                name: `This Server 👀`,
                 type: ActivityType.Watching
             }],
             status: "online"

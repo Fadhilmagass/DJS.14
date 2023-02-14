@@ -8,12 +8,14 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 
 - /ping = Mengetahui respon dan kinerja bot.
 - /clear = Menghapus pesan secara spesifik.
-- /createverify = Membuat sistem verifikasi. { Masih dalam perbaikkan }
+- /createverify = Membuat sistem verifikasi.
 - /ban = Melakukan banned kepada user.
 - /unban = Unban member dari server.
 - /help = Melihat semua command yang ada pada BOT.
-- /mute = Mute seorang anggota dari server.
-- /unmute = Unmute seorang anggota dari server.
+- /mute = Mute anggota dari server.
+- /unmute = Unmute anggota dari server.
+- /ticket = Tindakan tiket
+- /ticketsetup = Buat pesan tiket.
 
 ## Konfigurasi MongoDB & BOT Token
 

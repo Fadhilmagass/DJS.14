@@ -14,7 +14,8 @@ module.exports = {
         const emojis = {
             info: "📝",
             moderation: "🛠️",
-            general: "⚙️",
+            public: "📢",
+            ticket: "🎫"
         };
 
         const directories = [

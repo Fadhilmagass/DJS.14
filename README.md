@@ -16,6 +16,7 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 - /unmute = Unmute anggota dari server.
 - /ticket = Tindakan tiket
 - /ticketsetup = Buat pesan tiket.
+- /meme = Mengirim gif / meme dari Giphy
 
 ## Konfigurasi MongoDB & BOT Token
 

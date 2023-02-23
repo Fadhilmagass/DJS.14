@@ -26,11 +26,10 @@ module.exports = {
         const { options, guildId, member } = interaction;
 
         const role = options.getRole("role");
-        const description = options.getString("description");
-        const emoji = options.getString("emoji");
+        const description = options.getString("description") || "No description.";
+        const emoji = options.getString("emoji") || "";
 
         try {
-
             if (!role) {
                 return interaction.reply({
                     content: "Please provide a valid role.",
@@ -45,39 +44,33 @@ module.exports = {
                 });
             }
 
-            const data = await rrSchema.findOne({
-                GuildID: guildId
-            });
+            let data = await rrSchema.findOne({ GuildID: guildId });
 
             const newRole = {
                 roleId: role.id,
-                roleDescription: description || "No description.",
-                roleEmoji: emoji || "",
-            }
+                roleDescription: description,
+                roleEmoji: emoji,
+            };
 
             if (data) {
-                let roleData = data.roles.find((x) => x.roleId === role.id);
-
-                if (roleData) {
-                    roleData = newRole;
+                const roleIndex = data.roles.findIndex(x => x.roleId === role.id);
+                if (roleIndex === -1) {
+                    data.roles.push(newRole);
                 } else {
-                    data.roles = [...data.roles, newRole]
+                    data.roles[roleIndex] = newRole;
                 }
-
-                await data.save();
             } else {
-                await rrSchema.create({
-                    GuildID: guildId,
-                    roles: newRole
-                });
+                data = await rrSchema.create({ GuildID: guildId, roles: [newRole] });
             }
 
+            await data.save();
+
             return interaction.reply({
-                content: `Created new role **${role.name}**`
+                content: `Created new role **${role.name}**`,
             });
 
         } catch (err) {
             console.log(err);
         }
     }
-}
+};

@@ -8,51 +8,52 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles),
 
     async execute(interaction) {
-        const { options, guildId, guild, channel } = interaction;
+        const { guildId, guild, channel } = interaction;
 
         try {
             const data = await rrSchema.findOne({
                 GuildID: guildId
             });
 
-            if (!data.roles.length > 0)
+            if (!data || data.roles.length === 0) {
                 return interaction.reply({
-                    content: "This server doesn't not have any data.", ephemeral: true
+                    content: "This server does not have any data.", ephemeral: true
                 });
+            }
 
-            const panelEmbed = new EmbedBuilder()
-                .setDescription("Please select a role below")
-                .setColor("Aqua")
-
-            const option = data.roles.map(x => {
-                const role = guild.roles.cache.get(x.roleId);
-
+            const roleOptions = data.roles.map((rr) => {
+                const role = guild.roles.cache.get(rr.roleId);
                 return {
                     label: role.name,
-                    value: role.id,
-                    description: x.roleDescription,
-                    emoji: x.roleEmoji || undefined
+                    value: rr.roleId,
+                    description: rr.roleDescription || "No description provided.",
+                    emoji: rr.roleEmoji || undefined
                 };
             });
 
-            const menuComponents = [
-                new ActionRowBuilder().addComponents(
-                    new SelectMenuBuilder()
-                        .setCustomId('reaction-roles')
-                        .setMaxValues(option.length)
-                        .addOptions(option),
-                ),
-            ];
+            const selectMenu = new SelectMenuBuilder()
+                .setCustomId('reaction-roles')
+                .setMaxValues(roleOptions.length)
+                .addOptions(roleOptions);
 
-            channel.send({
-                embeds: [panelEmbed], components: menuComponents
+            const row = new ActionRowBuilder().addComponents(selectMenu);
+
+            const panelEmbed = new EmbedBuilder()
+                .setDescription("Please select a role below.")
+                .setColor("AQUA");
+
+            const sentMessage = await channel.send({
+                embeds: [panelEmbed],
+                components: [row]
             });
 
             return interaction.reply({
-                content: "Succesfully sent your panel.", ephemeral: true
+                content: "Successfully sent your panel.",
+                ephemeral: true
             });
+
         } catch (err) {
-            console.log(err);
+            console.error(err);
         }
     }
 }

@@ -14,6 +14,7 @@ module.exports = {
         const emojis = {
             info: "📝",
             moderation: "🛠️",
+            roles: "🧔",
             public: "📢",
             ticket: "🎫"
         };

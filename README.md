@@ -17,6 +17,9 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 - /ticket = Tindakan tiket
 - /ticketsetup = Buat pesan tiket.
 - /meme = Mengirim gif / meme dari Giphy
+- /addrole = Tambahkan role untuk panel reaction role.
+- /panel = Tampilkan panel reaction role.
+- /removerole = Menghapus role pada panel reaction role.
 
 ## Konfigurasi MongoDB & BOT Token
 

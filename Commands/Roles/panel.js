@@ -40,7 +40,7 @@ module.exports = {
 
             const panelEmbed = new EmbedBuilder()
                 .setDescription("Please select a role below.")
-                .setColor("AQUA");
+                .setColor("Aqua")
 
             const sentMessage = await channel.send({
                 embeds: [panelEmbed],

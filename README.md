@@ -20,6 +20,10 @@ Bot ini masih dalam tahap pengembangan dan masih memiliki beberapa fitur yang ak
 - /addrole = Tambahkan role untuk panel reaction role.
 - /panel = Tampilkan panel reaction role.
 - /removerole = Menghapus role pada panel reaction role.
+- /warnings add = Tambahkan peringatan ke pengguna.
+- /warnings check = Periksa peringatan pengguna.
+- /warnings clear = Hapus semua peringatan dari pengguna.
+- /warnings remove = Hapus peringatan pengguna.
 
 ## Konfigurasi MongoDB & BOT Token
 

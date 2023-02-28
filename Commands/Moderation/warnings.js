@@ -74,125 +74,129 @@ module.exports = {
 
         switch (sub) {
             case "add":
-                warningSchema.findOne({ GuildID: guildId, UserID: target.id, UserTag: userTag }, async (err, data) => {
-                    if (err) throw err;
-
+                try {
+                    const data = await warningSchema.findOne({
+                        GuildID: guildId,
+                        UserID: target.id,
+                        UserTag: userTag,
+                    });
+                    const warnContent = {
+                        ExecuterId: user.id,
+                        ExecuterTag: user.tag,
+                        Reason: reason,
+                        Evidence: evidence,
+                        Date: warnDate,
+                    };
                     if (!data) {
-                        data = new warningSchema({
+                        const newData = new warningSchema({
                             GuildID: guildId,
                             UserID: target.id,
                             UserTag: userTag,
-                            Content: [
-                                {
-                                    ExecuterId: user.id,
-                                    ExecuterTag: user.tag,
-                                    Reason: reason,
-                                    Evidence: evidence,
-                                    Date: warnDate
-                                }
-                            ],
+                            Content: [warnContent],
                         });
+                        await newData.save();
                     } else {
-                        const warnContent = {
-                            ExecuterId: user.id,
-                            ExecuterTag: user.tag,
-                            Reason: reason,
-                            Evidence: evidence,
-                            Date: warnDate
-                        }
                         data.Content.push(warnContent);
+                        await data.save();
                     }
-                    data.save();
-                });
-
-                embed.setColor("Green")
-                    .setDescription(`
-                Warning added: ${userTag} | ||${target.id}||
-                **Reason**: ${reason}
-                **Evidence**: ${evidence}
-                `)
-                    .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
-                    .setTimestamp();
-
-                interaction.reply({ embeds: [embed] });
-
+                    embed.setColor("Green")
+                        .setDescription(
+                            `Warning added: ${userTag} | ||${target.id}||\n**Reason**: ${reason}\n**Evidence**: ${evidence}`
+                        )
+                        .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
+                        .setTimestamp();
+                    interaction.reply({ embeds: [embed] });
+                } catch (err) {
+                    console.error(err);
+                    interaction.reply({
+                        content: "An error occurred while processing your command.",
+                        ephemeral: true,
+                    });
+                }
                 break;
             case "check":
-                warningSchema.findOne({ GuildID: guildId, UserID: target.id, UserTag: userTag }, async (err, data) => {
-                    if (err) throw err;
-
+                try {
+                    const data = await warningSchema.findOne({
+                        GuildID: guildId,
+                        UserID: target.id,
+                        UserTag: userTag,
+                    });
                     if (data) {
-                        embed.setColor("Green")
-                            .setDescription(`${data.Content.map(
+                        const content = data.Content
+                            .map(
                                 (w, i) =>
-                                    `
-                            **ID**: ${i + 1}
-                            **By**: ${w.ExecuterTag}
-                            **Date**: ${w.Date}
-                            **Reason**: ${w.Reason}
-                            **Evidence**: ${w.Evidence}\n\n
-                            `
-                            ).join(" ")}`)
+                                    `**ID**: ${i + 1}\n**By**: ${w.ExecuterTag}\n**Date**: ${w.Date}\n**Reason**: ${w.Reason}\n**Evidence**: ${w.Evidence}\n\n`
+                            )
+                            .join(" ");
+                        embed.setColor("Green")
+                            .setDescription(content)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
                         interaction.reply({ embeds: [embed] });
                     } else {
                         embed.setColor("Red")
                             .setDescription(`${userTag} | ||${target.id}|| has no warnings.`)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
                         interaction.reply({ embeds: [embed] });
                     }
-                });
+                } catch (err) {
+                    console.error(err);
+                    interaction.reply({
+                        content: "An error occurred while processing your command.",
+                        ephemeral: true,
+                    });
+                }
                 break;
             case "remove":
-                warningSchema.findOne({ GuildID: guildId, UserID: target.id, UserTag: userTag }, async (err, data) => {
-                    if (err) throw err;
-
+                try {
+                    const data = await warningSchema.findOne({
+                        GuildID: guildId,
+                        UserID: target.id,
+                        UserTag: userTag,
+                    });
                     if (data) {
                         data.Content.splice(warnId, 1);
-                        data.save();
-
+                        await data.save();
                         embed.setColor("Red")
                             .setDescription(`${userTag}'s warning id: ${warnId + 1} has been removed.`)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
                         interaction.reply({ embeds: [embed] });
                     } else {
                         embed.setColor("Red")
                             .setDescription(`${userTag} | ||${target.id}|| has no warnings.`)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
                         interaction.reply({ embeds: [embed] });
                     }
-                });
+                } catch (err) {
+                    console.error(err);
+                    interaction.reply({
+                        content: "An error occurred while processing your command.",
+                        ephemeral: true,
+                    });
+                }
                 break;
             case "clear":
-                warningSchema.findOne({ GuildID: guildId, UserID: target.id, UserTag: userTag }, async (err, data) => {
-                    if (err) throw err;
-
+                try {
+                    const data = await warningSchema.findOneAndDelete({ GuildID: guildId, UserID: target.id, UserTag: userTag });
                     if (data) {
-                        await warningSchema.findOneAndDelete({ GuildID: guildId, UserID: target.id, UserTag: userTag })
-
                         embed.setColor("Red")
                             .setDescription(`${userTag}'s warnings were cleared | ||${target.id}||.`)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
-                        interaction.reply({ embeds: [embed] });
                     } else {
                         embed.setColor("Red")
                             .setDescription(`${userTag} | ||${target.id}|| has no warnings.`)
                             .setFooter({ text: member.user.tag, iconURL: member.displayAvatarURL({ dynamic: true }) })
                             .setTimestamp();
-
-                        interaction.reply({ embeds: [embed] });
                     }
-                });
+                    interaction.reply({ embeds: [embed] });
+                } catch (err) {
+                    console.error(err);
+                    interaction.reply("There was an error while trying to clear the warnings.");
+                }
                 break;
 
             default:

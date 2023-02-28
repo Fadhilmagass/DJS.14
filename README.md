@@ -29,17 +29,18 @@ The bot is still in the development phase and will have several new features add
 
 To run this bot, you need to configure your MongoDB and BOT Token in the config.json file. To obtain your BOT Token, you can get it [here](https://discord.com/developers)
 
-````bash
+```bash
   {
     "token": "YOUR_BOT_TOKEN_HERE",
     "mongodb": "mongodb://<dbuser>:<dbpassword>@<host>:<port>/<dbname>"
   }
+```
 
 Clone this repository to your computer using the command:
 
 ```bash
   git clone https://github.com/Fadhilmagass/DJS.14
-````
+```
 
 Change the directory to the bot:
 

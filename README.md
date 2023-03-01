@@ -25,6 +25,7 @@ The bot is still in the development phase and will have several new features add
 - /warnings clear = Clear all warnings from a user.
 - /warnings remove = Remove warnings from a user.
 - /poll = Create a poll and send it to a certain channel.
+- /suggest = Place a suggestion.
 
 ## Installation
 

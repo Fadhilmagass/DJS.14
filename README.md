@@ -24,6 +24,7 @@ The bot is still in the development phase and will have several new features add
 - /warnings check = Check a user's warnings.
 - /warnings clear = Clear all warnings from a user.
 - /warnings remove = Remove warnings from a user.
+- /poll = Create a poll and send it to a certain channel.
 
 ## Installation
 
@@ -60,24 +61,24 @@ Run the bot using the command:
   node .
 ```
 
-## Tech Stack
+# Tech Stack
 
-# 1. [Node.js](https://nodejs.org/en/)
+## 1. [Node.js](https://nodejs.org/en/)
 
 Node.js is a JavaScript runtime platform that enables you to run JavaScript code outside of a browser. Discord.js is built using the JavaScript programming language and runs on Node.js, so you need to install Node.js first.
 
-# 2. [Discord API](https://github.com/discord/discord-api-docs)
+## 2. [Discord API](https://github.com/discord/discord-api-docs)
 
 Discord provides an API that allows you to create Discord bots and communicate with Discord servers. You can find the Discord API documentation and information on how to use it on the official Discord Developer Portal website.
 
-# 3. [Discord.js](https://discord.js.org/#/docs/discord.js/main/general/welcome)
+## 3. [Discord.js](https://discord.js.org/#/docs/discord.js/main/general/welcome)
 
 Discord.js is a JavaScript library that enables you to easily create Discord bots using the Discord API. The library has many features and methods that make it easy to interact with Discord servers and make bot code more efficient.
 
-# 4. [MongoDB](https://www.mongodb.com/)
+## 4. [MongoDB](https://www.mongodb.com/)
 
 MongoDB is a popular NoSQL database that can be used to store and retrieve data needed by your Discord bot. By using MongoDB, you can create more complex Discord bots with more comprehensive features such as storing user data, monitoring user activity, and creating logs.
 
-# 5. [Text editor](https://code.visualstudio.com/)
+## 5. [Text editor](https://code.visualstudio.com/)
 
 You will need a text editor to write your bot code. You can use any text editor, such as Visual Studio Code, Atom, etc. Make sure the text editor you use

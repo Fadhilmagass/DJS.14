@@ -7,7 +7,7 @@ The bot is still in the development phase and will have several new features add
 ## Features
 
 - /ping = Check bot response and performance.
-- /clear = Delete specific messages.
+- /clear = Successfully removed ${messages.size} messages from this channel.
 - /createverify = Create a verification system.
 - /ban = Ban a user from the server.
 - /unban = Unban a member from the server.
@@ -27,6 +27,8 @@ The bot is still in the development phase and will have several new features add
 - /poll = Create a poll and send it to a certain channel.
 - /suggest = Place a suggestion.
 - /update = Update the bots presences.
+- /rank = Get info about someone's rank.
+- /leaderboard = Get the leaderboard from the rank system.
 
 ## Installation
 

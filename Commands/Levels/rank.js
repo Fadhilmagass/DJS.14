@@ -7,7 +7,7 @@ module.exports = {
         .setDescription("Get info about someone's rank.")
         .addUserOption(option =>
             option.setName("user")
-                .setDescription("Select a user") 
+                .setDescription("Select a user")
         ),
 
     async execute(interaction) {
@@ -21,8 +21,12 @@ module.exports = {
 
         if (!levelUser) return interaction.reply({ content: "Seems like this user has not earned any xp so far.", ephemeral: true })
 
-        embed.setDescription(`**${member.user.tag}** is currently level ${levelUser.level} and has ${levelUser.xp.toLocaleString()} xp.`)
-            .setColor("Random").setTimestamp()
+        embed.setDescription(`**${member}** is currently level ${levelUser.level + 1} and has ${levelUser.xp.toLocaleString()} xp.`)
+            .setColor("Random")
+            .setFooter({
+                text: `${member.id}`, iconURL: user.displayAvatarURL({ dynamic: true })
+            })
+            .setTimestamp()
 
         return interaction.reply({ embeds: [embed] })
     }

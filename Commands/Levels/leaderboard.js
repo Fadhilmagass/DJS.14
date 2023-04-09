@@ -7,17 +7,18 @@ module.exports = {
         .setDescription("Get the leaderboard from the rank system."),
 
     async execute(interaction, client) {
-        const { guildId } = interaction
+        const { guildId, member } = interaction
         const rawLeaderboard = await Levels.fetchLeaderboard(guildId, 10)
 
         if (rawLeaderboard.length < 1) return interaction.reply({ content: "Nobody's in the leaderboard yet." })
 
         const embed = new EmbedBuilder()
         const leaderboard = await Levels.computeLeaderboard(client, rawLeaderboard, true)
-        const lb = leaderboard.map(e => `**${e.position}.** ${e.username}#${e.discriminator}\n**Level:** ${e.level}\n**XP:** ${e.xp.toLocaleString()}`)
+        const lb = leaderboard.map(e => `**${e.position}.** ${e.username}#${e.discriminator}\n**Level:** ${e.level + 1}\n**XP:** ${e.xp.toLocaleString()}`)
 
         embed.setTitle("Leaderboard")
             .setDescription(lb.join("\n\n"))
+            .setFooter({ text: `RAHASIA | ID: ${guildId}` })
             .setTimestamp()
 
         return interaction.reply({ embeds: [embed] })

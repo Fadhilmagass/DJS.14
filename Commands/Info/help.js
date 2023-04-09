@@ -13,6 +13,7 @@ module.exports = {
     async execute(interaction) {
         const emojis = {
             info: "📝",
+            levels: "🎚",
             moderation: "🛠️",
             roles: "🧔",
             public: "📢",
